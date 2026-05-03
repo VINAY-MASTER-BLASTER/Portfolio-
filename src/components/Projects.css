@@ -1,0 +1,130 @@
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+/* Card */
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-card__glow {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--project-accent, var(--accent-primary)), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.project-card:hover .project-card__glow {
+  opacity: 1;
+}
+
+.project-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.project-card__emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.project-card__links {
+  display: flex;
+  gap: 8px;
+}
+
+.project-card__link {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.project-card__link:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+  background: rgba(108, 92, 231, 0.1);
+}
+
+.project-card__link--primary:hover {
+  color: var(--accent-secondary);
+}
+
+.project-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.project-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.project-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.project-card__tech-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  color: var(--accent-secondary);
+  background: rgba(108, 92, 231, 0.06);
+  border: 1px solid rgba(108, 92, 231, 0.15);
+  border-radius: 6px;
+}
+
+.project-card__tech-icon {
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+}
+
+.project-card__bottom {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card__bottom {
+    flex-direction: column;
+  }
+
+  .project-card__bottom .btn {
+    justify-content: center;
+  }
+}
